@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: videoedify_development
+
+test:
+  <<: *default
+  database: videoedify_test
+
+production:
+  <<: *default
+  database: videoedify_production
+  # username: videoedify
+  # password: <%= ENV['videoedify_DATABASE_PASSWORD'] %>
