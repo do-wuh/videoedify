@@ -28,13 +28,13 @@
             <div class="header-links">
               <ul class="item-list">
                 <li class="item active">
-                  <a class="sign-in" href="#">Sign Up</a>
+                  <%= link_to 'Sign Up', new_user_registration_path %>
                 </li>
                 <li class="item">
-                  <a class="link-1" href="#">Sign In</a>
+                  <%= link_to 'Sign In', new_user_session_path %>
                 </li>
                 <li class="item">
-                  <a class="link-2" href="#">Sign Out</a>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
                 </li>
               </ul>          
             </div>
@@ -51,6 +51,12 @@
       </header>
 
       <div class="app-content">
+        <% if notice.present? %>
+          <p class="alert alert-info"><%= notice %></p>
+        <% end %>
+        <% if alert.present? %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
         <%= yield %>
       </div> 
 
@@ -128,7 +134,7 @@
           </ul>
         </div>       
       </footer>
-      
+     
     </div>    
   </body>
 </html>

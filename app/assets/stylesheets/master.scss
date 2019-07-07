@@ -19,6 +19,35 @@ ul {
   list-style-type: none;
 }
 
+.alert {
+  margin: 0px;
+  padding: 15px;
+  font-weight: bold;
+  line-height: 20px;
+  color: white;
+  text-align: right;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 0px;
+  box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+alert-success {
+background-color: rgba(0,125,200,0.5);
+}
+
+.alert-info {
+  background-color: rgba(125,175,0,0.5);
+}
+
+.alert-warning {
+  background-color: rgba(200,175,0,0.5);
+}
+
+.alert-danger {
+  background-color: rgba(175,50,0,0.5);
+}
+
 .logo-green{
   width: 200px;
   height: 100px;
