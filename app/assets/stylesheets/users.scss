@@ -1,3 +1,98 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-devise {
+  display: grid;
+  grid-template-rows: auto 50% auto;
+  grid-template-columns: auto 50% auto;
+  grid-gap: 1px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(0,0,0,0.0);
+}
+
+.user-devise > div {
+  width: 100%;
+  margin: 0px;
+  padding: 5%;
+  color: white;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.user-devise > .user-form {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 5%;
+  color: white;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.user-form > table {
+  width: 100%;
+  height: 100%;
+}
+
+.form-control {
+  height: 30px;
+  padding: 0px 10px;
+  color: white;
+  font-size: 14px;
+  line-height: 10px;
+  border: 1px solid white;
+  border-radius: 0px;
+  background-color: rgba(77,77,77,1.0);
+  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  color: white;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(125,175,0,1.0);
+  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}
+
+.enter-button {
+  float: right;
+  height: 30px;
+  padding: 0px 10px;
+  color: white;
+  font-size: 14px;
+  line-height: 10px;
+  border: 1px solid white;
+  border-radius: 0px;
+  background-color: rgba(125,175,0,1.0);
+  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+.enter-button:hover {
+  background-color: rgba(0,125,200,1.0);
+  transition: all 0.3s ease;
+}
+
+.bottom-right {
+  float: right;
+  bottom: 0px;
+  right: 0px;
+}
+
+@media all and (max-width: 992px) {
+  .user-devise {
+    grid-template-rows: auto 80% auto;
+    grid-template-columns: auto 80% auto;   
+   }
+}
