@@ -1,0 +1,78 @@
+.app-footer {
+  background-color: rgba(255,255,255,1.0);
+  font-weight: bold;
+  color: black;
+}
+
+
+.app-footer a {
+  color: black;
+}
+
+.app-footer li {
+  float: right;
+  height: 80px;
+  padding: 30px;
+  line-height: 20px;
+}
+
+.grow-links {
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 100px;
+  right: 35px;
+  width: 0px;
+  height: 80px;
+  background-color: rgba(255,255,255,1.0);
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.grow-links ul {
+  float: left;
+}
+
+.grow-links > .gradient-1, .grow-links > .gradient-2 {
+  float: left;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 80px;
+  height: 80px;
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  overflow: hidden;
+}
+
+.grow-links > .gradient-2 {
+  right: 65px;
+}
+
+@media all and (max-width: 992px) {
+
+  .app-footer li {
+    float: none;
+    height: 40px;
+    padding: 10px 20px;
+    line-height: 20px;
+  }
+
+  .show-links:hover > .grow-links {
+    width: 100%;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+  }
+
+}

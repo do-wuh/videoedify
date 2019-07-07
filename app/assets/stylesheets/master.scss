@@ -1,13 +1,107 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
 
+html,
 body {
-  background: image_url('');
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
 }
-.navbar {
-  font-family: sans-serif;
-  font-weight: bold;
+
+p {
+  color: black;
 }
-.hero {
-  background: image_url('');
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.logo-green{
+  width: 200px;
+  height: 100px;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-auto-rows: 80px auto 80px;
+  grid-auto-columns: 100px auto 100px;
+  align-content: stretch;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.app-header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%; 
+  height: 80px;
+  z-index: 10;
+}
+
+.app-content {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%; 
+  height: 100%;
+}
+
+.app-footer {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  width: 100%; 
+  height: 80px;
+  z-index: 20;
+}
+
+@media all and (max-width: 992px) {
+  .app-wrapper {
+    grid-auto-columns: 100px auto 100px;
+  }
+  .app-header {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100%;
+  }
+
+  .app-content {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+
+  .app-footer {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100px;
+    height: 80px;
+  }
 }

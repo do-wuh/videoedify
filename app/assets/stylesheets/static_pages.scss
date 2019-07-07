@@ -1,3 +1,27 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.feature {
+  display: grid;
+  grid-template-rows: 50% auto;
+  grid-template-columns: 50% auto;
+  grid-gap: 1px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(0,0,0,0.0);
+}
+
+.feature > div {
+  width: 100%;
+  height: 600px;
+  margin: 0px;
+  padding: 5%;
+  color: white;
+ background-color: rgba(0,0,0,0.1);
+}
+
+@media all and (max-width: 992px) {
+  .feature {
+    grid-template-rows: auto;
+    grid-template-columns: 100%;    
+   }
+}

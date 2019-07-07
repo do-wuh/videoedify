@@ -4,36 +4,131 @@
     <title>Videoedify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Navbar</a>
+    <div class="app-wrapper">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-    <%= yield %>
+      <header class="app-header">
+
+        <div class="gradient">
+          <%= render file: "app/assets/images/rgb.svg" %>       
+        </div>
+
+        <div class="logo-green">                            
+          <a href="#">
+            <%= render file: "app/assets/images/logo-green.svg" %>
+          </a>          
+        </div>
+
+        <div class="hamburger">
+          <div class="hamburger-icon">
+            <%= render file: "app/assets/images/hamburger-icon.svg" %>          
+            <div class="header-links">
+              <ul class="item-list">
+                <li class="item active">
+                  <a class="sign-in" href="#">Sign Up</a>
+                </li>
+                <li class="item">
+                  <a class="link-1" href="#">Sign In</a>
+                </li>
+                <li class="item">
+                  <a class="link-2" href="#">Sign Out</a>
+                </li>
+              </ul>          
+            </div>
+          </div>
+        </div>
+
+        <div class="search float-right">
+          <form>
+            <input class="search-box" type="text" placeholder="search">
+            <button class="search-icon" type="submit">Search</button>
+          </form>
+        </div>
+
+      </header>
+
+      <div class="app-content">
+        <%= yield %>
+      </div> 
+
+      <footer class="app-footer">
+        <div class="bottom-links">
+          <ul class="show-links">
+            <li>
+              <a href="#app-header">Top</a>
+            </li>
+            <li>
+              <a>Social</a>             
+            </li>
+
+            <div class="grow-links">
+              <ul>
+                <li>
+                  <a>About</a>
+                </li>
+                <li>
+                  <a>Contact</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a>Team</a>
+                </li>
+                <li>
+                  <a>Careers</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a>Teachers</a>
+                </li>
+                <li>
+                  <a>Teach a Course</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                </li>  
+                <li>
+                  <a>View Dashboard</a>
+                </li>          
+              </ul>
+              <div class="gradient-1">
+                <%= render file: "app/assets/images/rgb.svg" %>
+              </div>    
+              <div class="gradient-2">
+                <%= render file: "app/assets/images/rgb.svg" %>
+              </div>         
+            </div>
+
+            <li>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+            <li>
+              <a>Team</a>
+            </li>
+            <li>
+              <a>Careers</a>
+            </li>
+            <li>
+              <a>Teachers</a>
+            </li>
+            <li>
+              <a>Teach a Course</a>
+            </li>
+            <li>
+              <a>View Dashboard</a>
+            </li>
+          </ul>
+        </div>       
+      </footer>
+      
+    </div>    
   </body>
 </html>
