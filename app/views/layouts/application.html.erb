@@ -17,7 +17,7 @@
         </div>
 
         <div class="logo-green">                            
-          <a href="#">
+          <a href="/#">
             <%= render file: "app/assets/images/logo-green.svg" %>
           </a>          
         </div>
@@ -34,7 +34,7 @@
                   <%= link_to 'Sign In', new_user_session_path %>
                 </li>
                 <li class="item">
-                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+                  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
                 </li>
               </ul>          
             </div>
@@ -92,7 +92,7 @@
                   <a>Teachers</a>
                 </li>
                 <li>
-                  <a>Teach a Course</a>
+                  <%= link_to 'Teach a Course', new_instructor_course_path %>
                 </li>
               </ul>
               <ul>
@@ -126,7 +126,7 @@
               <a>Teachers</a>
             </li>
             <li>
-              <a>Teach a Course</a>
+              <%= link_to 'Teach a Course', new_instructor_course_path %>
             </li>
             <li>
               <a>View Dashboard</a>
