@@ -1,0 +1,18 @@
+<div class="user-devise">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h3><%= @course.title %></h3>
+    <h5><span class="badge badge-pill badge-default"><%= number_to_currency @course.cost %></span></h5>
+    <p><%= @course.description %></p>
+    <% if current_user && current_user == @course.user %>
+      <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
+    <% end %>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
