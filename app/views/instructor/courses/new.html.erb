@@ -1,20 +1,20 @@
 <div class="user-devise">
   <div></div>
-    <div></div>
-      <div></div>
-        <div></div>
-          <div class="user-form">
-            <h4>Add a new course</h4>
-            <br/>
-            <%= simple_form_for @course, url: instructor_courses_path do |f| %>
-              <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-              <%= f.input :description, required: true, label: false, placeholder: 'description' %>
-              <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
-              <%= f.submit "Create", class: 'enter-button' %>
-            <% end %>
-          </div>
-        <div></div>
-      <div></div>
-    <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h4>Add a new course</h4>
+    <br/>
+    <%= simple_form_for @course, url: instructor_courses_path do |f| %>
+      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+      <%= f.input :description, required: true, label: false, placeholder: 'description' %>
+      <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
+      <%= f.submit "Create", class: 'enter-button' %>
+    <% end %>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
   <div></div>
 </div>
