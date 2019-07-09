@@ -15,10 +15,23 @@ a:hover {
     text-decoration: none;
 }
 
-ul {
+ol, ul {
   margin: 0px;
   padding: 0px;
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+
+ul {
   list-style-type: none;
+}
+
+hr {
+  height: 1px;
+  background-color: white;
+  border: none;
 }
 
 .alert {

@@ -1,0 +1,19 @@
+<div class="user-devise">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h4>Add a new Lesson</h4>
+    <br/>
+    <%= simple_form_for @lesson, url: instructor_section_lessons_path(@section) do |f| %>
+      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+      <%= f.input :subtitle, required: true, label: false, placeholder: 'subtitle' %>
+      <%= f.submit 'Add Lesson', class: 'enter-button' %>
+    <% end %>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

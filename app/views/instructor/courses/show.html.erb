@@ -4,22 +4,37 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h4><%= @course.title %></h4>
-    <br/>
-    <%= link_to 'Preview as Student', course_path(@course), class: 'enter-button' %>
-    <br/>
-    <br/>
+    <h3><%= @course.title %></h3>
+    <%= link_to 'Preview as Student', course_path(@course), class: 'enter-button float-left' %>    
     <%= link_to 'Add Section', new_instructor_course_section_path(@course), class: 'enter-button' %>
     <br/>
+    <br/>
+    <hr/>
     <div>
       <ol>
         <% @course.sections.each do |section| %>
           <li>
-            <%= section.title %>
-          </li>
+            <div>
+              <h5 class="float-left"><%= section.title %></h5>
+              <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button' %>
+              <br/>
+              <ul>
+                <% section.lessons.each do |lesson| %>
+                  <li>
+                    <div style="padding: 1%;">
+                      <h5><%= lesson.title %></h5>
+                      <p><%= lesson.subtitle %></p>             
+                    </div>
+                  </li>          
+                <% end %>
+              </ul>
+              <br/>
+              <hr/>
+            </div>
+          </li>          
         <% end %>
       </ol>
-  </div>
+    </div>
   </div>
   <div></div>
   <div></div>
