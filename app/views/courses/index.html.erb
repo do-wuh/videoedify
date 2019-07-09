@@ -1,0 +1,13 @@
+<div class="feature">
+  <% @courses.each do |course| %>
+  <div>
+    <h3><%= course.title %></h3>
+    <div>
+      <%= course.description %>
+    </div>
+    <div>
+      <%= link_to 'View', '#', class: 'enter-button' %>
+    </div>
+  </div>
+  <% end %>
+</div>

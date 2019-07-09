@@ -48,6 +48,16 @@
   transition: 0.2s ease;
 }
 
+.courses {
+  position: absolute;
+  top: 20px;
+  left: 280px;
+  height: 60px;
+  padding: 15px 0px;
+  line-height: 30px;
+  text-align: center;
+}
+
 .search {
   position: absolute;
   top: 20px;
@@ -176,12 +186,22 @@
     min-width: 286px;
   }
 
+  .courses {
+    position: relative;
+    top: 210px;
+    left: 0px;
+    width: 100px;
+    height: 60px;
+    padding: 15px;
+    line-height: 20px;
+  }
+
   .search {
     display: none;
   }
 
   .hamburger {
-    top: 260px;
+    top: 320px;
     left: 20px;
   }
 
@@ -197,7 +217,7 @@
     position: fixed;
     height: 0px;
     width: 100px;
-    top: 320px;
+    top: 380px;
     left: 0px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -206,6 +226,8 @@
   }
 
   .header-links li {
+    height: 40px;
+    line-height: 10px;
     text-align: center;
   }
 
