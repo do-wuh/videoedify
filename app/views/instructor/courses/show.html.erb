@@ -1,15 +1,28 @@
 <div class="user-devise">
   <div></div>
-    <div></div>
-      <div></div>
-        <div></div>
-          <div class="user-form">
-            <h4><%= @course.title %></h4>
-            <br/>
-
-          </div>
-        <div></div>
-      <div></div>
-    <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h4><%= @course.title %></h4>
+    <br/>
+    <%= link_to 'Preview as Student', course_path(@course), class: 'enter-button' %>
+    <br/>
+    <br/>
+    <%= link_to 'Add Section', new_instructor_course_section_path(@course), class: 'enter-button' %>
+    <br/>
+    <div>
+      <ol>
+        <% @course.sections.each do |section| %>
+          <li>
+            <%= section.title %>
+          </li>
+        <% end %>
+      </ol>
+  </div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
   <div></div>
 </div>

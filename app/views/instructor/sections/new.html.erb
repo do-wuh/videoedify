@@ -1,0 +1,18 @@
+<div class="user-devise">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h4>Add a new Section</h4>
+    <br/>
+    <%= simple_form_for @section, url: instructor_course_sections_path(@course) do |f| %>
+      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+      <%= f.submit 'Add Section', class: 'enter-button' %>
+    <% end %>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
