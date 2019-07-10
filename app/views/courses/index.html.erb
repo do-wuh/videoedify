@@ -2,10 +2,14 @@
   <% @courses.each do |course| %>
   <div>
     <h3><%= link_to course.title, course_path(course) %></h3>
-    <p>
-      <%= course.description %>
-    </p>
+    <div class="aspect-ratio-outer">
+      <div class="aspect-ratio-inner">
+        <%= image_tag course.image.url %>
+      </div>
+    </div>
+    <br/>
     <%= link_to 'View', course_path(course), class: 'enter-button' %>
+    <p><%= course.description %></p>   
   </div>
   <% end %>
 </div>

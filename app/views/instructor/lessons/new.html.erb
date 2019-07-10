@@ -4,7 +4,7 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h4>Add a new Lesson</h4>
+    <h4>New Lesson</h4>
     <br/>
     <%= simple_form_for @lesson, url: instructor_section_lessons_path(current_section) do |f| %>
       <%= f.input :title, required: true, label: false, placeholder: 'title' %>

@@ -4,14 +4,14 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h4>New Course</h4>
+    <h4>Edit Course</h4>
     <br/>
-    <%= simple_form_for @course, url: instructor_courses_path do |f| %>
+    <%= simple_form_for current_course, url: instructor_course_path(current_course) do |f| %>
       <%= f.input :title, required: true, label: false, placeholder: 'title' %>
       <%= f.input :description, required: true, label: false, placeholder: 'description' %>
       <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
-      <%= f.input :image, label: false %>
-      <%= f.submit  'Add Course', class: 'enter-button' %>
+      <%= f.input_field :image, class: 'enter-button float-left' %>
+      <%= f.submit  'Update Course', class: 'enter-button' %>
     <% end %>
   </div>
   <div></div>

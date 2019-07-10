@@ -4,39 +4,48 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h3><%= @course.title %></h3>
-    <h5>
+    <h3 class="float-right">
       <span class="badge badge-pill badge-default">
         <%= number_to_currency @course.cost %>          
       </span>
-    </h5>    
+    </h3> 
+    <h3><%= @course.title %></h3>
+    <br/>
+    <div class="aspect-ratio-outer">
+      <div class="aspect-ratio-inner">
+        <%= image_tag @course.image.url %>
+      </div>
+    </div>
+    <br/>
     <% if current_user && current_user == @course.user %>
       <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
     <% end %>
     <p><%= @course.description %></p>
+    <br/>
+    <hr/>
+    <div>
     <ol>
       <% @course.sections.each do |section| %>
         <li>
           <div>
-            <h5 class="float-left"><%= section.title %></h5>
+            <h5><%= section.title %></h5>
             <br/>
-            <ul>
+            <p>
               <% section.lessons.each do |lesson| %>
-                <li>
-                  <div style="padding: 1%;">
-                    <%= link_to lesson_path(lesson) do %>
-                      <h5><%= lesson.title %></h5>
-                      <p><%= lesson.subtitle %></p>
-                    <% end %>
-                  </div>
-                </li>          
+                <%= link_to lesson_path(lesson) do %>
+                  <b><%= lesson.title %></b>
+                  <br/>
+                  <%= lesson.subtitle %>
+                <% end %>
+                <br/>
               <% end %>
-            </ul>
-            <hr/>
-          </div>
-        </li>          
+            </p>
+            </div>
+          <hr/>
+        </li>
       <% end %>
     </ol>
+    </div>
   </div>
   <div></div>
   <div></div>

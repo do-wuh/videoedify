@@ -4,11 +4,12 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h4>New Section</h4>
+    <h4>Edit Lesson</h4>
     <br/>
-    <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
+    <%= simple_form_for current_lesson, url: instructor_section_lesson_path(current_section) do |f| %>
       <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-      <%= f.submit 'Add Section', class: 'enter-button' %>
+      <%= f.input :subtitle, required: true, label: false, placeholder: 'subtitle' %>
+      <%= f.submit 'Update Lesson', class: 'enter-button' %>
     <% end %>
   </div>
   <div></div>

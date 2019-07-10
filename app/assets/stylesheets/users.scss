@@ -89,15 +89,22 @@
   transition: all 0.3s ease;
 }
 
-.bottom-right {
-  float: right;
-  bottom: 0px;
-  right: 0px;
+.file {
+  padding: 0px;
+  line-height: 23px
+}
+
+.edit-color {
+  color: rgba(0,125,200,1.0);
+}
+
+.delete-color {
+  color: rgba(175,50,0,1.0);
 }
 
 @media all and (max-width: 992px) {
   .user-devise {
-    grid-template-rows: 50px auto 50px;
-    grid-template-columns: 50px auto 50px;   
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 0px auto 0px;   
    }
 }

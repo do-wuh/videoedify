@@ -4,34 +4,57 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h3><%= current_course.title %></h3>
-    <%= link_to 'Preview as Student', course_path(current_course), class: 'enter-button float-left' %>    
-    <%= link_to 'Add Section', new_instructor_course_section_path(current_course), class: 'enter-button' %>
+    <%= link_to 'Preview as Student', course_path(current_course), class: 'enter-button float-right' %>
+    <h3><%= current_course.title %></h3>    
+    <br/>
+    <div class="aspect-ratio-outer">
+      <div class="aspect-ratio-inner">
+        <%= image_tag current_course.image.url %>
+      </div>
+    </div>
+    <br/>
+    <p class='float-right'>
+    <b><%= link_to 'Edit', edit_instructor_course_path(current_course), class: 'edit-color' %> | <%= link_to 'Delete Course', instructor_course_path(current_course), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
+    </p>
+    <%= current_course.description %>
+    <br/>
+    <br/>
+    <%= link_to 'Add Section', new_instructor_course_section_path(current_course), class: 'enter-button float-left' %>
     <br/>
     <br/>
     <hr/>
     <div>
       <ol>
-        <% current_course.sections.each do |section| %>
+        <% current_course.sections.each do |section| %>      
           <li>
             <div>
-              <h5 class="float-left"><%= section.title %></h5>
-              <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button' %>
+              <p class='float-right'>
+                <b><%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
+              </p>
+              <h5><%= section.title %></h5>
+              <br/>
+              <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button float-left' %>
+              <br/>
+              <br/>
               <br/>
               <ul>
                 <% section.lessons.each do |lesson| %>
-                  <li>
-                    <div style="padding: 1%;">
-                      <h5><%= lesson.title %></h5>
-                      <p><%= lesson.subtitle %></p>             
-                    </div>
-                  </li>          
+                <li>
+                  <p class='float-right'>
+                   <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section,lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
+                  </p>
+                  <p>
+                    <b><%= lesson.title %></b>
+                    <br/>
+                    <%= lesson.subtitle %>
+                  </p>
+                  <br/>
+                </li>
                 <% end %>
               </ul>
-              <br/>
-              <hr/>
             </div>
-          </li>          
+          </li>
+          <hr/>
         <% end %>
       </ol>
     </div>

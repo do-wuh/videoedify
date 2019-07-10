@@ -1,7 +1,6 @@
 class LessonsController < ApplicationController
 
-  def show
-    
+  def show    
   end
 
   private
