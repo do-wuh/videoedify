@@ -9,7 +9,11 @@
     <%= simple_form_for @lesson, url: instructor_section_lessons_path(current_section) do |f| %>
       <%= f.input :title, required: true, label: false, placeholder: 'title' %>
       <%= f.input :subtitle, required: true, label: false, placeholder: 'subtitle' %>
+      <%= f.input_field :video, class: 'enter-button float-left' %>
       <%= f.submit 'Add Lesson', class: 'enter-button' %>
+      <br/>
+      <br/>
+      <p>Add Video</p>
     <% end %>
   </div>
   <div></div>

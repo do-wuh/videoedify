@@ -10,8 +10,11 @@
       <%= f.input :title, required: true, label: false, placeholder: 'title' %>
       <%= f.input :description, required: true, label: false, placeholder: 'description' %>
       <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
-      <%= f.input :image, label: false %>
+      <%= f.input_field :image, class: 'enter-button float-left' %>
       <%= f.submit  'Add Course', class: 'enter-button' %>
+      <br/>
+      <br/>
+      <p>Add Image</p>
     <% end %>
   </div>
   <div></div>

@@ -1,7 +1,6 @@
 .feature {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
-  grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
   grid-gap: 1px;
   width: 100%;
   height: 100%;
@@ -16,9 +15,20 @@
   background-color: rgba(0,0,0,0.1);
 }
 
-@media all and (max-width: 992px) {
+@media all and (max-width: 1920px) {
   .feature {
-    grid-template-rows: auto;
-    grid-template-columns: 100%;    
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+   }
+}
+
+@media all and (max-width: 1280px) {
+  .feature {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+   }
+}
+
+@media all and (max-width: 640px) {
+  .feature {
+    grid-template-columns: auto;    
    }
 }
