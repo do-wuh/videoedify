@@ -7,15 +7,29 @@ body {
   font-size: 12px;
 }
 
-h1, h2, h3, h4, h5, h6, a, p, .invalid-feedback {
-  color: black;
+h1, h2, h3, h4, h5, h6, a, p, .invalid-feedback {  
   margin: 0px;
   padding: 0px;
+  color: black;
+  outline: none;
+  text-decoration: none;
+  transition: 0.3 ease;
 }
 
 a:hover {
-    text-decoration: none;
+  color: rgba(0,125,200,1.0);
+  outline: none;
+  text-decoration: none;
+  transition: 0.3 ease;
 }
+
+a:focus {
+  color: rgba(125,175,0,1.0);
+  outline: none;
+  text-decoration: none;
+  transition: 0.3 ease;
+}
+
 
 ol, ul {
   margin: 0px;
@@ -75,7 +89,7 @@ hr {
 }
 
 .alert-success {
-background-color: rgba(0,125,200,0.5);
+  background-color: rgba(0,125,200,0.5);
 }
 
 .alert-info {
