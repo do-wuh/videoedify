@@ -16,9 +16,13 @@
         <%= image_tag @course.image.url %>
       </div>
     </div>
-    <br/>
+    <br/>      
     <% if current_user && current_user == @course.user %>
       <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
+    <% elsif current_user && current_user.enrolled_in?(@course) %>
+      <p class="float-right">Enrolled … ☻</p>
+    <% else %>
+      <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button' %>  
     <% end %>
     <p><%= @course.description %></p>
     <br/>
@@ -28,14 +32,16 @@
       <% @course.sections.each do |section| %>
         <li>
           <div>
-            <h5><%= section.title %></h5>
+            <h3><%= section.title %></h3>
             <br/>
             <p>
               <% section.lessons.each do |lesson| %>
                 <%= link_to lesson_path(lesson) do %>
-                  <b><%= lesson.title %></b>
+                  <h4><%= lesson.title %></h4>
                   <br/>
                   <%= lesson.subtitle %>
+                  <br/>
+                  <br/>
                   <div class="aspect-ratio-outer">
                     <div class="aspect-ratio-inner">
                       <img src="<%= lesson.image %>"/>

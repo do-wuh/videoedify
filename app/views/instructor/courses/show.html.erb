@@ -36,7 +36,7 @@
               <p class='float-right'>
                 <b><%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
               </p>
-              <h5><%= section.title %></h5>
+              <h3><%= section.title %></h3>
               <br/>
               <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button float-left' %>
               <br/>
@@ -49,9 +49,11 @@
                    <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section,lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
                   </p>
                   <p>
-                    <b><%= lesson.title %></b>
+                    <h4><%= lesson.title %></h4>
                     <br/>
                     <%= lesson.subtitle %>
+                    <br/>
+                    <br/>
                     <div class="aspect-ratio-outer">
                       <div class="aspect-ratio-inner">
                         <img src="<%= lesson.image %>"/>

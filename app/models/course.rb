@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :user
   has_many :sections, :dependent => :delete_all
+  has_many :enrollments
 
   mount_uploader :image, ImageUploader
 
