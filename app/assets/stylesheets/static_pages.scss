@@ -1,34 +1,51 @@
-.feature {
+.multi-page, .single-page {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
   grid-gap: 1px;
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: rgba(0,0,0,0.0);
+  background-color: rgba(0,0,0,0.0);  
 }
 
-.feature > div {
+.multi-page > div, .single-page > div {
   margin: 0px;
   padding: 5%;
   background-color: rgba(0,0,0,0.1);
 }
 
+.multi-page {
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+}
+
+.single-page {
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 15% auto 15%;
+}
+
 @media all and (max-width: 1920px) {
-  .feature {
+  .multi-page {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
    }
+  .single-page {
+    grid-template-columns: 10% auto 10%;
+  }
 }
 
 @media all and (max-width: 1280px) {
-  .feature {
+  .multi-page {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
    }
+  .single-page {
+    grid-template-columns: 5% auto 5%;
+  }
 }
 
 @media all and (max-width: 640px) {
-  .feature {
+  .multi-page {
     grid-template-columns: auto;    
    }
+  .single-page {
+    grid-template-columns: 0px auto 0px;
+  }
 }

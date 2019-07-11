@@ -1,4 +1,4 @@
-<div class="user-devise">
+<div class="single-page">
   <div></div>
   <div></div>
   <div></div>
@@ -36,6 +36,11 @@
                   <b><%= lesson.title %></b>
                   <br/>
                   <%= lesson.subtitle %>
+                  <div class="aspect-ratio-outer">
+                    <div class="aspect-ratio-inner">
+                      <img src="<%= lesson.image %>"/>
+                    </div>
+                  </div>
                 <% end %>
                 <br/>
               <% end %>

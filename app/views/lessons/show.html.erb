@@ -1,4 +1,4 @@
-<div class="user-devise">
+<div class="single-page">
   <div></div>
   <div></div>
   <div></div>
@@ -6,7 +6,19 @@
   <div class="user-form">
     <h3><%= current_lesson.title %></h3>
     <p><%= current_lesson.subtitle %></p>
-    <%= link_to 'Video', current_lesson.video.to_s %>
+    <div class="aspect-ratio-outer">
+      <div class="aspect-ratio-inner">
+        <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" poster="<%= current_lesson.image.url %>" data-setup="{}">
+          <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
+          <noscript>
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a web browser that
+              <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+          </noscript>
+        </video>
+      </div>
+    </div>
   </div>
   <div></div>
   <div></div>

@@ -1,10 +1,14 @@
-<div class="user-devise">
+<div class="single-page">
   <div></div>
   <div></div>
   <div></div>
   <div></div>
-  <div class="user-form">
-    <%= link_to 'Preview as Student', course_path(current_course), class: 'enter-button float-right' %>
+  <div class="user-form">    
+    <h3 class="float-right">
+      <span class="badge badge-pill badge-default">
+        <%= number_to_currency current_course.cost %>          
+      </span>
+    </h3> 
     <h3><%= current_course.title %></h3>    
     <br/>
     <div class="aspect-ratio-outer">
@@ -15,10 +19,11 @@
     <br/>
     <p class='float-right'>
     <b><%= link_to 'Edit', edit_instructor_course_path(current_course), class: 'edit-color' %> | <%= link_to 'Delete Course', instructor_course_path(current_course), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
-    </p>
+    </p>    
     <%= current_course.description %>
     <br/>
     <br/>
+    <%= link_to 'Preview as Student', course_path(current_course), class: 'enter-button float-right' %>
     <%= link_to 'Add Section', new_instructor_course_section_path(current_course), class: 'enter-button float-left' %>
     <br/>
     <br/>
@@ -47,6 +52,11 @@
                     <b><%= lesson.title %></b>
                     <br/>
                     <%= lesson.subtitle %>
+                    <div class="aspect-ratio-outer">
+                      <div class="aspect-ratio-inner">
+                        <img src="<%= lesson.image %>"/>
+                      </div>
+                    </div>
                   </p>
                   <br/>
                 </li>
