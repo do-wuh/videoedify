@@ -16,20 +16,12 @@ h1, h2, h3, h4, h5, h6, a, p, .invalid-feedback {
   transition: 0.3 ease;
 }
 
-a:hover {
-  color: rgba(0,125,200,1.0);
+a:hover, a:focus {
   outline: none;
   text-decoration: none;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
   transition: 0.3 ease;
 }
-
-a:focus {
-  color: rgba(125,175,0,1.0);
-  outline: none;
-  text-decoration: none;
-  transition: 0.3 ease;
-}
-
 
 ol, ul {
   margin: 0px;

@@ -4,11 +4,15 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <h3 class="float-right">
-      <span class="badge badge-pill badge-default">
-        <%= number_to_currency @course.cost %>          
-      </span>
-    </h3> 
+    <% if current_user && current_user.enrolled_in?(@course) %>
+      <b class="enrolled float-right">Enrolled … ☻</b>
+    <% else %>
+      <h3 class="float-right">
+        <span class="badge badge-pill badge-default">
+          <%= number_to_currency @course.cost %>          
+        </span>
+      </h3>
+    <% end %> 
     <h3><%= @course.title %></h3>
     <br/>
     <div class="aspect-ratio-outer">
@@ -19,8 +23,7 @@
     <br/>      
     <% if current_user && current_user == @course.user %>
       <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
-    <% elsif current_user && current_user.enrolled_in?(@course) %>
-      <p class="float-right">Enrolled … ☻</p>
+    <% elsif @course.user && current_user.enrolled_in?(@course) %>
     <% else %>
       <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button' %>  
     <% end %>

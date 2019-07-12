@@ -32,15 +32,18 @@
             <%= render file: "app/assets/images/hamburger-icon.svg" %>          
             <div class="header-links">
               <ul class="item-list">
-                <li class="item active">
-                  <%= link_to 'Sign Up', new_user_registration_path %>
-                </li>
-                <li class="item">
-                  <%= link_to 'Sign In', new_user_session_path %>
-                </li>
-                <li class="item">
-                  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-                </li>
+                <% if user_signed_in? %>
+                  <li class="item active">
+                    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+                  </li>
+                <% else %>
+                  <li class="item">
+                    <%= link_to 'Sign In', new_user_session_path %>
+                  </li>
+                  <li class="item">                  
+                    <%= link_to 'Sign Up', new_user_registration_path %>                  
+                  </li>
+                <% end %>
               </ul>          
             </div>
           </div>

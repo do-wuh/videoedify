@@ -1,5 +1,4 @@
 class Instructor::SectionsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :require_authorized_for_current_course
 
@@ -50,6 +49,5 @@ class Instructor::SectionsController < ApplicationController
 
   def section_params
     params.require(:section).permit(:title)
-  end
-  
+  end  
 end

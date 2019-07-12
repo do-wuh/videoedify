@@ -1,5 +1,4 @@
 class EnrollmentsController < ApplicationController
-
   before_action :authenticate_user!
 
   def create
@@ -12,5 +11,4 @@ class EnrollmentsController < ApplicationController
   def current_course
     @current_course ||= Course.find(params[:course_id])
   end
-
 end
