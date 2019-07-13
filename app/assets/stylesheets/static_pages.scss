@@ -51,6 +51,9 @@
 }
 
 @media all and (max-width: 800px) {
+  .multi-page {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+   }
   .single-page {
     grid-template-columns: 0px auto 0px;
     grid-gap: 1px 0px;

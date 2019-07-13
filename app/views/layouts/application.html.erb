@@ -22,10 +22,12 @@
             <%= render file: "app/assets/images/logo-green.svg" %>
           </a>          
         </div>
-
-        <div class="courses">
-          <%= link_to 'See All Courses', courses_path %>
-        </div>
+        
+        <%= link_to courses_path do %>
+          <div class="courses">
+            View All Courses
+          </div>
+        <% end %>
 
         <div class="hamburger">
           <div class="hamburger-icon">

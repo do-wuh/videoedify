@@ -4,15 +4,32 @@
   <div></div>
   <div></div>
   <div class="user-form">
-    <% if current_user && current_user.enrolled_in?(@course) %>
-      <b class="enrolled float-right">Enrolled … ☻</b>
-    <% else %>
-      <h3 class="float-right">
-        <span class="badge badge-pill badge-default">
-          <%= number_to_currency @course.cost %>          
-        </span>
-      </h3>
-    <% end %> 
+<!-- course cost -->
+    <% if current_user %>
+<!-- enrolled -->
+      <% if current_user.enrolled_in?(@course) %>
+        <b class="enrolled float-right">Enrolled … ☻</b>
+<!-- not enrolled -->        
+      <% else %>
+<!-- free course -->        
+        <% if @course.free? %>
+          <h3 class="float-right">
+            <span class="badge">
+              FREE
+            </span>
+          </h3>
+<!-- paid course -->
+        <% else %>
+          <br/>
+          <br/>
+          <h3 class="float-right">
+            <span class="badge">
+              <%= number_to_currency @course.cost %>
+            </span>
+          </h3>
+        <% end %>
+      <% end %>
+    <% end %>
     <h3><%= @course.title %></h3>
     <br/>
     <div class="aspect-ratio-outer">
@@ -20,12 +37,34 @@
         <%= image_tag @course.image.url %>
       </div>
     </div>
-    <br/>      
-    <% if current_user && current_user == @course.user %>
-      <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
-    <% elsif @course.user && current_user.enrolled_in?(@course) %>
-    <% else %>
-      <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button' %>  
+    <br/>
+<!-- current user -->
+    <% if current_user %>
+<!-- student -->
+      <% if current_user.enrolled_in?(@course) %>
+<!-- admin -->
+      <% elsif current_user == @course.user %>
+        <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
+<!-- browsing -->
+      <% else %>
+<!-- free course -->        
+        <% if @course.free? %>
+          <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button' %> -->
+<!-- paid course -->
+        <% else %>
+          <%= form_tag course_enrollments_path(@course), method: :post do %>
+            <script src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-email="<%= current_user.email %>"
+                    data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
+                    data-amount="<%= (@course.cost * 100).to_i %>"
+                    data-locale="auto"
+                    data-label="Credit Card Enrollment">
+            </script>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
     <p><%= @course.description %></p>
     <br/>
