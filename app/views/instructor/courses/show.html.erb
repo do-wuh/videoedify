@@ -41,7 +41,7 @@
               <br/>
               <br/>
               <ul>
-                <% section.lessons.each do |lesson| %>
+                <% section.lessons.rank(:row_order).each do |lesson| %>
                 <li>
                   <p class='float-right'>
                    <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section, lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
