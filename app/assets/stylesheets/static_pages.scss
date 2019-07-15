@@ -8,16 +8,18 @@
   background-color: rgba(0,0,0,0.0);
 }
 
-.multi-page > div, .course-sections > li > div {
-  margin: 0px;
-  padding: 10%;
-  background-color: rgba(0,0,0,0.1);
-}
-
-.course-page > div, .single-page > div {
+.course-page > div, .course-sections > li > div, .multi-page > div, .single-page > div {
   margin: 0px;
   padding: 2% 10%;
   background-color: rgba(0,0,0,0.1);
+}
+
+.course-sections > li > div, .multi-page > div {
+  padding: 10%;
+}
+
+.course-page > div, .single-page > div {
+  padding: 2% 10%;
 }
 
 .course-page, .single-page {

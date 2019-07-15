@@ -3,12 +3,18 @@
     height: 100%;
 }
 
-.grab-icon::before {
-    position: absolute;
-    content: "●";
-    color: rgba(255,255,255,0.3);
-    font-size: 2em;
-    margin-top: -10px;
-    margin-left: 3px;
-    cursor: move;
+.grab-section, .grab-lesson {
+  float: left;
+  cursor: move;
+}
+
+.grab-section {
+  padding: 2px 5px 0px 0px;
+  color: rgba(0,0,0,1.0);
+}
+
+
+.grab-lesson {  
+  padding: 5px;
+  color: rgba(0,0,0,0.3);
 }

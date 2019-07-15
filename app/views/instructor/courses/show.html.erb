@@ -10,13 +10,28 @@
         });
       }
     });
+    $('.sections').sortable({
+      update: function(event, ui) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: {section: {row_order_position: ui.item.index()}}
+        });
+      }
+    });
   });
 </script>
 
 <div class="course-page">
   <div></div>
-  <div class="course-title">
-    <div>    
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <div>
+      <br/>
+      <br/>
       <h3 class="float-right">
         <span class="badge badge-pill badge-default">
           <%= number_to_currency current_course.cost %>          
@@ -42,14 +57,14 @@
       <br/>
       <hr/>
     </div>    
-    <div>
-      <% current_course.sections.each do |section| %>
-        <div>
-          <ul>              
-            <li>
-              <div>
+    <div>      
+      <div>
+        <ul class="sections">
+          <% current_course.sections.rank(:row_order).each do |section| %>              
+            <li data-update-url="<%= instructor_course_section_path(current_course, section) %>">
+              <div>                
                 <b class='float-right'><%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
-                <h3><%= section.title %></h3>
+                <h3><i class="fa fa-arrows-alt grab-section"></i><%= section.title %></h3>
                 <br/>
                 <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button float-left' %>
                   <br/>
@@ -57,8 +72,9 @@
                   <br/>
                   <ul class="lessons course-sections">
                     <% section.lessons.rank(:row_order).each do |lesson| %>
-                    <li data-update-url="<%= instructor_section_lesson_path(section, lesson) %>" class="grab-icon">
-                      <div class="">
+                    <li data-update-url="<%= instructor_section_lesson_path(section, lesson) %>">
+                      <h3><i class="fa fa-arrows-alt grab-lesson"></i></h3>
+                      <div>
                         <p class='float-right'>
                          <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section, lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
                         </p>
@@ -81,11 +97,14 @@
                 <br/>
                 <hr/>
               </div>
-            </li>     
-          </ul>
-        </div>
-      <% end %>
+            </li>
+          <% end %>     
+        </ul>
+      </div>      
     </div>
   </div>
+  <div></div>
+  <div></div>
+  <div></div>
   <div></div>
 </div>

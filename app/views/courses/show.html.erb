@@ -1,9 +1,9 @@
-<div class="single-page">
+<div class="course-page">
   <div></div>
   <div></div>
   <div></div>
   <div></div>
-  <div class="user-form">
+  <div>
 <!-- course cost -->
     <% if current_user %>
 <!-- enrolled -->
@@ -71,7 +71,7 @@
     <hr/>
     <div>
     <ol>
-      <% @course.sections.each do |section| %>
+      <% @course.sections.rank(:row_order).each do |section| %>
         <li>
           <div>
             <h3><%= section.title %></h3>
