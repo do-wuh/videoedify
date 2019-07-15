@@ -1,38 +1,44 @@
 class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_section
+  before_action :require_authorized_for_current_section, only: [:new, :create]
+  before_action :require_authorized_for_current_lesson, only: [:edit, :update, :destroy]
 
   def new
-    @section = current_section
     @lesson = Lesson.new
   end
 
   def create
-    @section = current_section
     @lesson = current_section.lessons.create(lesson_params)
-    redirect_to instructor_course_path(@section.course)
+    redirect_to instructor_course_path(current_section.course)
   end
 
   def edit
   end
 
   def update
-    @section = current_section
-    current_lesson.update_attributes(lesson_params)
+    current_lesson.update_attributes(lesson_params)    
     if current_lesson.valid?
-      redirect_to instructor_course_path(@section.course)
+      flash[:notice] = 'Lesson Updated … ✔'
+      redirect_to instructor_course_path(current_section.course)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @section = current_section
     current_lesson.destroy
-    redirect_to instructor_course_path(@section.course)
+    flash[:alert] = 'Lesson Deleted … ❌'
+    redirect_to instructor_course_path(current_section.course)
   end
 
   private
+
+  def require_authorized_for_current_lesson
+    if current_lesson.section.course.user != current_user
+      flash[:alert] = 'Unauthorized User … ☠'
+      redirect_to root_path
+    end
+  end
 
   def require_authorized_for_current_section
     if current_section.course.user != current_user
@@ -52,6 +58,6 @@ class Instructor::LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :subtitle, :video, :image)
+    params.require(:lesson).permit(:title, :subtitle, :video, :image, :row_order_position)
   end  
 end

@@ -17,6 +17,7 @@ class Instructor::SectionsController < ApplicationController
   def update
     current_section.update_attributes(section_params)
     if current_section.valid?
+      flash[:notice] = 'Section Updated … ✔'
       redirect_to instructor_course_path(current_course)
     else
       render :edit, status: :unprocessable_entity
@@ -25,6 +26,7 @@ class Instructor::SectionsController < ApplicationController
 
   def destroy
     current_section.destroy
+    flash[:alert] = 'Section Deleted … ❌'
     redirect_to instructor_course_path(current_course)
   end
 
@@ -32,7 +34,7 @@ class Instructor::SectionsController < ApplicationController
 
   def require_authorized_for_current_course
     if current_course.user != current_user
-      flash[:alert] = 'Unauthorized User … o.O'
+      flash[:alert] = 'Unauthorized User … ☠'
       redirect_to root_path
     end
   end

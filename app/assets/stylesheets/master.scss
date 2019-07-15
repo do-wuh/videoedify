@@ -13,13 +13,20 @@ h1, h2, h3, h4, h5, h6, a, p, .invalid-feedback {
   color: black;
   outline: none;
   text-decoration: none;
-  transition: 0.3 ease;
+  transition: 0.2s ease;
 }
 
-a:hover, a:focus {
+a:hover {
+  color: rgba(125,175,0,1.0);
   outline: none;
   text-decoration: none;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
+}
+
+a:focus {
+  outline: none;
+  text-decoration: none;
+  transition: 0.2s ease;
 }
 
 ol, ul {

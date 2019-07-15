@@ -21,6 +21,7 @@ class Instructor::CoursesController < ApplicationController
   def update
     current_course.update_attributes(course_params)
     if current_course.valid?
+      flash[:notice] = 'Course Updated … ✔'
       redirect_to instructor_course_path(current_course)
     else
       render :edit, status: :unprocessable_entity
@@ -32,6 +33,7 @@ class Instructor::CoursesController < ApplicationController
 
   def destroy
     current_course.destroy
+    flash[:alert] = 'Course Deleted … ❌'
     redirect_to courses_path
   end
 
@@ -39,7 +41,7 @@ class Instructor::CoursesController < ApplicationController
 
   def require_authorized_for_current_course
     if current_course.user != current_user
-      flash[:alert] = 'Unauthorized User … o.O'
+      flash[:alert] = 'Unauthorized User … ☠'
       redirect_to root_path
     end
   end
