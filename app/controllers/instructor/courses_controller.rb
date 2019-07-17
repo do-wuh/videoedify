@@ -1,6 +1,6 @@
 class Instructor::CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_course, only: [:edit, :update, :show, :destroy]
+  before_action :require_authorized_for_current_course, only: [:show, :update, :destroy]
 
   def new
     @course = Course.new
@@ -15,26 +15,21 @@ class Instructor::CoursesController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    @section = Section.new
+    @lesson = Lesson.new    
   end
 
   def update
     current_course.update_attributes(course_params)
-    if current_course.valid?
-      flash[:notice] = 'Course Updated … ✔'
-      redirect_to instructor_course_path(current_course)
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def show
+    flash[:notice] = 'Course Updated … ✔'
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     current_course.destroy
     flash[:alert] = 'Course Deleted … ❌'
-    redirect_to courses_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

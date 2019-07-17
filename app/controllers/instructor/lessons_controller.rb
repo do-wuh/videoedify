@@ -1,34 +1,23 @@
 class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_section, only: [:new, :create]
-  before_action :require_authorized_for_current_lesson, only: [:edit, :update, :destroy]
-
-  def new
-    @lesson = Lesson.new
-  end
+  before_action :require_authorized_for_current_section, only: [:create]
+  before_action :require_authorized_for_current_lesson, only: [:update, :destroy]
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
-    redirect_to instructor_course_path(current_section.course)
-  end
-
-  def edit
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     current_lesson.update_attributes(lesson_params)    
-    if current_lesson.valid?
-      flash[:notice] = 'Lesson Updated … ✔'
-      redirect_to instructor_course_path(current_section.course)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    flash[:notice] = 'Lesson Updated … ✔'
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     current_lesson.destroy
     flash[:alert] = 'Lesson Deleted … ❌'
-    redirect_to instructor_course_path(current_section.course)
+    redirect_back(fallback_location: root_path)
   end
 
   private

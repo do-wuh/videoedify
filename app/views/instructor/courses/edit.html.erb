@@ -1,24 +1,20 @@
-<div class="user-devise">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div class="user-form">
-    <h4>Edit Course</h4>
-    <br/>
-    <%= simple_form_for current_course, url: instructor_course_path(current_course) do |f| %>
-      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-      <%= f.input :description, required: true, label: false, placeholder: 'description' %>
-      <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
-      <%= f.input_field :image, class: 'enter-button float-left' %>
-      <%= f.submit  'Update Course', class: 'enter-button' %>
-      <br/>
-      <br/>
-      <p>Update Image</p>
-    <% end %>
+<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="user-devise">
+        <h4>Edit Course</h4>
+        <br/>
+        <%= simple_form_for current_course, url: instructor_course_path(current_course) do |f| %>
+          <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+          <%= f.input :description, required: true, label: false, placeholder: 'description' %>
+          <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
+          <%= f.input_field :image, class: 'enter-button float-left' %>
+          <%= f.submit  'Update Course', class: 'enter-button' %>
+          <br/>
+          <br/>
+          <p>Update Image</p>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
 </div>

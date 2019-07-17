@@ -1,29 +1,10 @@
-<div class="user-devise">
-  <div></div>
-    <div></div>
-      <div></div>
-        <div></div>
-          <div class="user-form">
-            <table>
-              <tr>
-                <td>
-                  <h4>Forgot your password?</h4>
-                  <br/>
-                  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                    <%= f.input :email, required: true, label: false, placeholder: 'email', class: 'btn' %>
-                    <%= f.button :submit, 'Send me reset password instructions', class: 'enter-button' %>
-                  <% end %>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6><%= render "devise/shared/links" %></h6>
-                </td>
-              </tr>
-            </table>
-          </div>
-        <div></div>
-      <div></div>
-    <div></div>
-  <div></div>
-</div>
+<h4>Forgot your password?</h4>
+<br/>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.input :email, required: true, label: false, placeholder: 'email', class: 'btn' %>
+  <%= f.button :submit, 'Send me reset password instructions', class: 'enter-button float-right' %>
+<% end %>
+<br/>
+<h6>
+  <a data-toggle="tab" href="#signinForm">Sign In</a> | <a data-toggle="tab" href="#signupForm">Sign Up</a>
+</h6>

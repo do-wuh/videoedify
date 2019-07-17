@@ -1,5 +1,14 @@
 <script>
   $(function() {
+    $('.new-lesson-button').click(function(event) {      
+      var lessonUrl = $(event.target).data('lesson-url');
+      $('#newLessonForm').attr('action', lessonUrl);
+    });
+    $('.edit-lesson-button').click(function(event) {      
+      var lessonUrl = $(event.target).data('lesson-url');
+      alert( lessonUrl )
+      $('#editLessonForm').attr('action', lessonUrl);
+    });
     $('.lessons').sortable({
       update: function(event, ui) {
         $.ajax({
@@ -34,10 +43,10 @@
       <br/>
       <h3 class="float-right">
         <span class="badge badge-pill badge-default">
-          <%= number_to_currency current_course.cost %>          
+          <%= number_to_currency current_course.cost %>
         </span>
       </h3> 
-      <h3><%= current_course.title %></h3>    
+      <h3><%= current_course.title %></h3>
       <br/>
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
@@ -45,48 +54,78 @@
         </div>
       </div>
       <br/>
-      <p class='float-right'>
-      <b><%= link_to 'Edit', edit_instructor_course_path(current_course), class: 'edit-color' %> | <%= link_to 'Delete Course', instructor_course_path(current_course), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
-      </p>    
+
+<!-- trigger #editCourseModal -->
+      <div class="float-right">
+        <%= link_to 'Edit', "#editCourseModal", 'data-toggle' => 'modal', class: 'edit-color' %>
+         | 
+        <%= link_to 'Delete Course', instructor_course_path(current_course), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
+      </div>
       <%= current_course.description %>
       <br/>
       <br/>
       <%= link_to 'Preview as Student', course_path(current_course), class: 'enter-button float-right' %>
-      <%= link_to 'Add Section', new_instructor_course_section_path(current_course), class: 'enter-button float-left' %>
+
+<!-- trigger #newSectionModal -->
+      <%= link_to 'Add Section', '#newSectionModal', 'data-toggle' => 'modal', class: 'enter-button float-left' %>
       <br/>
       <br/>
       <hr/>
-    </div>    
-    <div>      
+    </div>
+    <div>
       <div>
         <ul class="sections">
-          <% current_course.sections.rank(:row_order).each do |section| %>              
-            <li data-update-url="<%= instructor_course_section_path(current_course, section) %>">
-              <div>                
-                <b class='float-right'><%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
-                <h3><i class="fa fa-arrows-alt grab-section"></i><%= section.title %></h3>
+          <% current_course.sections.rank(:row_order).each do |section| %>
+            <li data-update-url="<%= instructor_section_path(section) %>">
+              <div>
+
+<!-- trigger #editSectionModal -->
+                <div class="float-right">
+                  <%= link_to 'Edit', "#editSectionModal", 'data-toggle' => 'modal', class: 'edit-color' %>
+                   | 
+                  <%= link_to 'Delete Section', instructor_section_path(section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
+                </div>
+                <h3>
+                  <i class="fa fa-arrows-alt grab-section"></i>
+                  <%= section.title %>
+                </h3>
                 <br/>
-                <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button float-left' %>
+
+<!-- trigger #newLessonModal -->
+                  <button type="button" class="new-lesson-button enter-button float-left" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">
+                    Add Lesson
+                  </button>
                   <br/>
                   <br/>
                   <br/>
                   <ul class="lessons course-sections">
                     <% section.lessons.rank(:row_order).each do |lesson| %>
-                    <li data-update-url="<%= instructor_section_lesson_path(section, lesson) %>">
-                      <h3><i class="fa fa-arrows-alt grab-lesson"></i></h3>
+                    <li data-update-url="<%= instructor_lesson_path(lesson) %>">
+                      <h3>
+                        <i class="fa fa-arrows-alt grab-lesson"></i>
+                      </h3>
                       <div>
-                        <p class='float-right'>
-                         <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section, lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
-                        </p>
+
+<!-- trigger #editLessonModal -->
+                        <div class="float-right">
+                          <button type="button" class="edit-lesson-button enter-button float-left" data-toggle="modal" data-target="#editLessonModal" data-lesson-url="<%= instructor_lesson_path(lesson) %>">
+                            Edit Lesson
+                          </button>
+                          <%= link_to 'Edit', "#editLessonModal", 'data-toggle' => 'modal', 'data-lesson-url' => '<%= instructor_lesson_path(lesson)', class: 'edit-color' %>
+                           | 
+                          <%= link_to 'Delete Lesson', instructor_lesson_path(lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
+                        </div>
                         <p>
-                          <h4><%= lesson.title %></h4>
+                          <h4>
+                            <%= lesson.title %>
+                          </h4>
                           <br/>
                           <%= lesson.subtitle %>
                           <br/>
                           <br/>
                           <div class="aspect-ratio-outer">
                             <div class="aspect-ratio-inner">
-                              <img src="<%= lesson.image %>"/>
+                              <img src="<%= lesson.image.url %>"/>
                             </div>
                           </div>
                         </p>
@@ -108,3 +147,19 @@
   <div></div>
   <div></div>
 </div>
+
+<!-- #editCourseModal -->
+<%= render template: "instructor/courses/edit" %>
+
+<!-- #newSectionModal -->
+<%= render template: "instructor/sections/new" %>
+
+<!-- #editSectionModal -->
+<%= render template: "instructor/sections/edit" %>
+
+<!-- #newLessonModal -->
+<%= render template: "instructor/lessons/new" %>
+
+<!-- #editLessonModal -->
+<%= render template: "instructor/lessons/edit" %>
+

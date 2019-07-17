@@ -1,18 +1,18 @@
 <div class="multi-page">
   <% @courses.each do |course| %>
-  <div>
-    <h3><%= link_to course.title, course_path(course) %></h3>
-    <br/>
-    <%= link_to course_path(course) do %>
-    <div class="aspect-ratio-outer">
-      <div class="aspect-ratio-inner">
-        <%= image_tag course.image.url %>
+    <div>
+      <h3><%= link_to course.title, course_path(course) %></h3>
+      <br/>
+      <%= link_to course_path(course) do %>
+      <div class="aspect-ratio-outer">
+        <div class="aspect-ratio-inner">
+          <%= image_tag course.image.url %>
+        </div>
       </div>
+      <% end %>
+      <br/>
+      <%= link_to 'View', course_path(course), class: 'enter-button float-right' %>
+      <p><%= course.description %></p>   
     </div>
-    <% end %>
-    <br/>
-    <%= link_to 'View', course_path(course), class: 'enter-button' %>
-    <p><%= course.description %></p>   
-  </div>
   <% end %>
 </div>

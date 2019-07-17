@@ -1,4 +1,4 @@
-.course-page, .course-sections, .multi-page, .single-page {
+.dashboard-page, .course-page, .course-sections, .multi-page, .single-page {
   display: grid;
   grid-gap: 1px;
   width: 100%;
@@ -8,9 +8,8 @@
   background-color: rgba(0,0,0,0.0);
 }
 
-.course-page > div, .course-sections > li > div, .multi-page > div, .single-page > div {
+.dashboard-page > div, .course-page > div, .course-sections > li > div, .multi-page > div, .single-page > div {
   margin: 0px;
-  padding: 2% 10%;
   background-color: rgba(0,0,0,0.1);
 }
 
@@ -20,6 +19,10 @@
 
 .course-page > div, .single-page > div {
   padding: 2% 10%;
+}
+
+.dashboard-page > div {
+    padding: 2%;
 }
 
 .course-page, .single-page {

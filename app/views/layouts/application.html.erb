@@ -7,6 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="http://vjs.zencdn.net/5.12.6/video-js.css" rel="stylesheet">
+    <script>
+      $(function() {
+        $('.signupModal').click(function(){
+          $("#userForm").modal('show');
+          $("#signinForm").tab('hide');
+          $("#signupForm").tab('show');          
+          $("#forgotForm").tab('hide');
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="app-wrapper">
@@ -40,10 +50,10 @@
                   </li>
                 <% else %>
                   <li class="item">
-                    <%= link_to 'Sign In', new_user_session_path %>
+                    <%= link_to 'Sign In', "#userForm", 'data-toggle' => 'modal', class: 'edit-color' %>
                   </li>
                   <li class="item">                  
-                    <%= link_to 'Sign Up', new_user_registration_path %>                  
+                    <%= link_to 'Sign Up', '#signupForm', class: 'edit-color signupModal' %>
                   </li>
                 <% end %>
               </ul>          
@@ -95,17 +105,37 @@
               <a>Teachers</a>
             </li>
             <li>
-              <%= link_to 'Teach a Course', new_instructor_course_path %>
-            </li>
-            <li>
-              <a>View Dashboard</a>
+              <%= link_to 'Dashboard', dashboard_path %>
             </li>
           </ul>
         </div>       
       </footer>
      
     </div>
+
+    <!-- #userForm modal -->
+    <div class="modal fade hide" id="userForm" tabindex="-1" role="dialog" aria-labelledby="userFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="user-devise">
+            <div class="tab-content">
+              <div class="tab-pane fade active show" id="signinForm">
+                <%= render template: "devise/sessions/new" %>
+              </div>
+              <div class="tab-pane fade" id="signupForm">
+                <%= render template: "devise/registrations/new" %>
+              </div>
+              <div class="tab-pane fade" id="forgotForm">
+                <%= render template: "devise/passwords/new" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="http://vjs.zencdn.net/5.12.6/video.js"></script>
-    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>    
+
   </body>
 </html>

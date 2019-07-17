@@ -1,18 +1,14 @@
-<div class="user-devise">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div class="user-form">
-    <h4>Edit Section</h4>
-    <br/>
-    <%= simple_form_for current_section, url: instructor_course_section_path(current_course, current_section) do |f| %>
-      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-      <%= f.submit 'Update Section', class: 'enter-button' %>
-    <% end %>
+<div class="modal fade" id="editSectionModal" tabindex="-1" role="dialog" aria-labelledby="editSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="user-devise">
+        <h4>Edit Section</h4>
+        <br/>
+        <%= simple_form_for @section, url: instructor_section_path(current_course) do |f| %>
+          <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+          <%= f.submit 'Update Section', class: 'enter-button' %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
 </div>
