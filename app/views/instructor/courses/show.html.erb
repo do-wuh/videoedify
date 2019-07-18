@@ -34,10 +34,10 @@
       <br/>
       <h3 class="float-right">
         <span class="badge badge-pill badge-default">
-          <%= number_to_currency current_course.cost %>          
+          <%= number_to_currency current_course.cost %>
         </span>
       </h3> 
-      <h3><%= current_course.title %></h3>    
+      <h3><%= current_course.title %></h3>
       <br/>
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
@@ -56,14 +56,16 @@
       <br/>
       <br/>
       <hr/>
-    </div>    
-    <div>      
+    </div>
+    <div>
       <div>
         <ul class="sections">
-          <% current_course.sections.rank(:row_order).each do |section| %>              
+          <% current_course.sections.rank(:row_order).each do |section| %>
             <li data-update-url="<%= instructor_course_section_path(current_course, section) %>">
               <div>                
-                <b class='float-right'><%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
+                <p class='float-right'>
+                  <%= link_to 'Edit', edit_instructor_course_section_path(current_course, section), class: 'edit-color' %> | <%= link_to 'Delete Section', instructor_course_section_path(current_course, section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
+                </p>
                 <h3><i class="fa fa-arrows-alt grab-section"></i><%= section.title %></h3>
                 <br/>
                 <%= link_to 'Add Lesson', new_instructor_section_lesson_path(section), class: 'enter-button float-left' %>
@@ -76,7 +78,7 @@
                       <h3><i class="fa fa-arrows-alt grab-lesson"></i></h3>
                       <div>
                         <p class='float-right'>
-                         <b><%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section, lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %></b>
+                         <%= link_to 'Edit', edit_instructor_section_lesson_path(section, lesson), class: 'edit-color' %> | <%= link_to 'Delete Lesson', instructor_section_lesson_path(section, lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
                         </p>
                         <p>
                           <h4><%= lesson.title %></h4>
@@ -98,9 +100,9 @@
                 <hr/>
               </div>
             </li>
-          <% end %>     
+          <% end %>
         </ul>
-      </div>      
+      </div>
     </div>
   </div>
   <div></div>
