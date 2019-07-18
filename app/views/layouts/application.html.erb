@@ -57,18 +57,15 @@
         <div class="hamburger">
           <div class="hamburger-icon">
             <%= render file: "app/assets/images/hamburger-icon.svg" %>
-
             <div class="header-links">
-
-          <ul>
-
-            <li>
-              <%= link_to 'Teach a Course', new_instructor_course_path %>
-            </li>
-            <li>
-              <%= link_to 'Dashboard', dashboard_path %>
-            </li>
-          </ul>
+              <ul class="item-list">
+                <li class="item active">
+                  <%= link_to 'Teach a Course', new_instructor_course_path %>
+                </li>
+                <li class="item">
+                  <%= link_to 'Dashboard', dashboard_path %>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

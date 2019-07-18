@@ -49,7 +49,7 @@
       <% else %>
 <!-- free course -->        
         <% if @course.free? %>
-          <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button' %> -->
+          <%= link_to 'Enroll', course_enrollments_path(@course), method: :post, class: 'enter-button float-right' %>
 <!-- paid course -->
         <% else %>
           <%= form_tag course_enrollments_path(@course), method: :post do %>

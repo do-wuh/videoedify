@@ -129,7 +129,6 @@
   height: 50px;
   padding: 15px;
   line-height: 20px;
-  white-space: nowrap;
   text-align: right;
 }
 
@@ -191,6 +190,10 @@
     width: 100px;
     top: 320px;
     left: 0px;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -198,8 +201,9 @@
 
   .header-links li {
     width: 100px;
-    height: 40px;
-    line-height: 10px;
+    height: 60px;
+    padding: 15px;
+    line-height: 20px;
     text-align: center;
   }
 
