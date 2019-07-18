@@ -68,10 +68,10 @@
 }
 
 .enter-button {
-  float: right;
   height: 30px;
   padding: 10px;
   color: white;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 10px;
   border: 1px solid white;
@@ -124,17 +124,14 @@ form input placeholder {
   box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.enrolled, .edit-color, .delete-color {
+  font-weight: bold;
+}
+
 .enrolled, .edit-color {
   color: rgba(0,125,200,1.0);
 }
 
 .delete-color {
   color: rgba(175,50,0,1.0);
-}
-
-@media all and (max-width: 1200px) {
-  .user-devise {
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 0px auto 0px;   
-   }
 }

@@ -33,7 +33,6 @@ a:focus {
 ol, ul {
   margin: 0px;
   padding: 0px;
-  font-weight: bold;
 }
 
 ol {
@@ -153,6 +152,10 @@ hr {
   width: 100%; 
   height: 50px;
   z-index: 20;
+}
+
+.modal-open {
+  overflow: unset;
 }
 
 @media all and (max-width: 1200px) {

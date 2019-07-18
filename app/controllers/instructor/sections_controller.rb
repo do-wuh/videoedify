@@ -1,36 +1,33 @@
 class Instructor::SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_course
-
-  def new
-    @section = Section.new
-  end
+  before_action :require_authorized_for_current_course, only: [:create]
+  before_action :require_authorized_for_current_section, only: [:update, :destroy]
 
   def create
     @section = current_course.sections.create(section_params)
-    redirect_to instructor_course_path(current_course)
-  end
-
-  def edit
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     current_section.update_attributes(section_params)
-    if current_section.valid?
-      flash[:notice] = 'Section Updated … ✔'
-      redirect_to instructor_course_path(current_course)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    flash[:notice] = 'Section Updated … ✔'
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     current_section.destroy
     flash[:alert] = 'Section Deleted … ❌'
-    redirect_to instructor_course_path(current_course)
+    redirect_back(fallback_location: root_path)
   end
 
   private
+
+  def require_authorized_for_current_section
+    if current_section.course.user != current_user
+      flash[:alert] = 'Unauthorized User … ☠'
+      redirect_to root_path
+    end
+  end
 
   def require_authorized_for_current_course
     if current_course.user != current_user

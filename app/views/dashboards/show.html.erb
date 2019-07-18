@@ -1,0 +1,62 @@
+<div class="dashboard-page">
+
+  <% if current_user %>
+<!-- student -->
+    <% if current_user.enrolled_courses %>
+      <div class="dashboard-learn">
+        <%= link_to 'Learn a Course', courses_path, class: 'enter-button float-right' %>
+        <h3>Courses you're Learning ...</h3>
+      </div>
+      <div class="multi-page">
+        <% current_user.enrolled_courses.each do |course| %>
+          <div>
+            <h3><%= link_to course.title, course_path(course) %></h3>
+            <br/>
+            <%= link_to course_path(course) do %>
+            <div class="aspect-ratio-outer">
+              <div class="aspect-ratio-inner">
+                <%= image_tag course.image.url %>
+              </div>
+            </div>
+            <% end %>
+            <br/>
+            <%= link_to 'View', course_path(course), class: 'enter-button float-right' %>
+            <p><%= course.description %></p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+  <% end %>
+
+  <% if current_user %>
+<!-- instructor -->
+    <% if current_user.courses %>
+      <div class="dashboard-teach">        
+        <%= link_to 'Teach a Course', "#newCourseModal", 'data-toggle' => 'modal', class: 'enter-button float-right' %>
+        <h3>Courses you're Teaching ...</h3>
+      </div>
+      <div class="multi-page">
+        <% current_user.courses.each do |course| %>
+          <div>
+            <h3><%= link_to course.title, course_path(course) %></h3>
+            <br/>
+            <%= link_to course_path(course) do %>
+            <div class="aspect-ratio-outer">
+              <div class="aspect-ratio-inner">
+                <%= image_tag course.image.url %>
+              </div>
+            </div>
+            <% end %>
+            <br/>
+            <%= link_to 'View', course_path(course), class: 'enter-button float-right' %>
+            <p><%= course.description %></p>   
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+  <% end %>
+
+</div>
+

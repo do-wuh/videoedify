@@ -1,27 +1,23 @@
-<div class="user-devise">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div class="user-form">
-    <h4>New Lesson</h4>
-    <br/>
-    <%= simple_form_for @lesson, url: instructor_section_lessons_path(current_section) do |f| %>
-      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-      <%= f.input :subtitle, required: true, label: false, placeholder: 'subtitle' %>
-      <%= f.input_field :video, class: 'enter-button float-left' %>
-      <%= f.submit 'Add Lesson', class: 'enter-button' %>
-      <br/>
-      <br/>
-      <p>Add Video</p>
-      <%= f.input_field :image, class: 'enter-button float-left' %>
-      <br/>
-      <br/>
-      <p>Add Video Still</p>
-    <% end %>
+<div class="modal fade" id="newLessonModal" tabindex="-1" role="dialog" aria-labelledby="newLessonModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="user-devise">
+        <h4>New Lesson</h4>
+        <br/>
+        <%= simple_form_for @lesson, url: '#', html: {id: 'newLessonForm'} do |f| %>
+          <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+          <%= f.input :subtitle, required: true, label: false, placeholder: 'subtitle' %>
+          <%= f.input_field :video, class: 'enter-button float-left' %>
+          <%= f.submit 'Add Lesson', class: 'enter-button float-right' %>
+          <br/>
+          <br/>
+          <p>Add Video</p>
+          <%= f.input_field :image, class: 'enter-button float-left' %>
+          <br/>
+          <br/>
+          <p>Add Video Still</p>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
 </div>

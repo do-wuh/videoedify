@@ -6,6 +6,18 @@
   <div>
     <br/>
     <br/>
+    <div class="float-right left-right-icon">
+      <% if current_lesson.previous_lesson.present? %>
+        <%= link_to lesson_path(current_lesson.previous_lesson) do %>
+          <span class="fa fa-arrow-circle-left left-right-icon"></span>
+        <% end %>
+      <% end %>
+      <% if current_lesson.next_lesson.present? %>
+        <%= link_to lesson_path(current_lesson.next_lesson) do %>
+          <span class="fa fa-arrow-circle-right left-right-icon"></span>
+        <% end %>
+      <% end %> 
+    </div>
     <h3><%= current_lesson.title %></h3>
     <p><%= current_lesson.subtitle %></p>
     <div class="aspect-ratio-outer">

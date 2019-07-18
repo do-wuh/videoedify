@@ -5,18 +5,21 @@
   color: black;
 }
 
-
-.app-footer a {
-  color: black;
-}
-
 .app-footer li {
   float: right;
   height: 50px;
   padding: 15px;
-  line-height: 20px;
+  line-height: 2em;
   white-space: nowrap;
   text-align: center;
+}
+
+.fa-2x {
+  color: rgba(0,0,0,0.7);
+}
+
+.fa-2x:hover {
+  color: rgba(125,175,0,1.0);
 }
 
 .more {
@@ -28,6 +31,18 @@
   line-height: 20px;
   white-space: nowrap;
   text-align: center;
+}
+
+.gradient-footer {
+  float: right;
+  width: 50px;
+  height: 20px;
+  margin: 15px -15px -30px 0px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  overflow: hidden;
 }
 
 @media all and (max-width: 1200px) {
@@ -44,5 +59,9 @@
     display: block;
   }
 
+  .gradient-footer {
+    height: 50px;
+    margin: 0px;
+  }
 
 }

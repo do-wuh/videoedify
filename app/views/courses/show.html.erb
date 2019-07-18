@@ -42,9 +42,9 @@
     <% if current_user %>
 <!-- student -->
       <% if current_user.enrolled_in?(@course) %>
-<!-- admin -->
+<!-- instructor -->
       <% elsif current_user == @course.user %>
-        <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button' %>
+        <%= link_to 'Administer', instructor_course_path(@course), class: 'enter-button float-right' %>
 <!-- browsing -->
       <% else %>
 <!-- free course -->        
