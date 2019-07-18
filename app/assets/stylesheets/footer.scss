@@ -15,11 +15,18 @@
 }
 
 .fa-2x {
+  position: relative;
+  bottom: 2px;
   color: rgba(0,0,0,0.7);
 }
 
 .fa-2x:hover {
   color: rgba(125,175,0,1.0);
+}
+
+label {
+  display: inline-block;
+  width: 2em;
 }
 
 .more {

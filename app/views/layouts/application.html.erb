@@ -9,11 +9,8 @@
     <link href="http://vjs.zencdn.net/5.12.6/video-js.css" rel="stylesheet">
     <script>
       $(function() {
-        $('.signupModal').click(function(){
-          $("#userForm").modal('show');
-          $("#signinForm").tab('hide');
-          $("#signupForm").tab('show');
-          $("#forgotForm").tab('hide');
+        $( ".fa" ).tooltip({
+          position: { my: "center top+10", at: "center bottom" }
         });
       });
     </script>
@@ -93,14 +90,26 @@
           <ul>                 
             <li>
               <%= link_to 'https://github.com/do-wuh' do %>
-                <i class="fa fa-github-square fa-2x"></i>
+                <i class="fa fa-github-alt fa-2x" title="GitHub"></i>
               <% end %>
             </li>
             <li>
-              <i class="fa fa-facebook-square fa-2x"></i>
+              <i class="fa fa-facebook fa-2x"title="Facebook"></i>
             </li>
             <li>
-              <i class="fa fa-twitter-square fa-2x"></i>
+              <i class="fa fa-twitter fa-2x"title="Twitter"></i>
+            </li>
+            <li>
+              <i class="fa fa-pinterest-p fa-2x" title="Pinterest"></i>
+            </li>
+            <li>
+              <i class="fa fa-user-secret fa-2x" title="Secret"></i>
+            </li>
+            <li>
+              <i class="fa fa-snapchat-ghost fa-2x" title="Snapchat"></i>
+            </li>
+            <li>
+              <i class="fa fa-slack fa-2x" title="Slack"></i>
             </li>
           </ul> 
         </div>
