@@ -4,11 +4,6 @@
       var lessonUrl = $(event.target).data('lesson-url');
       $('#newLessonForm').attr('action', lessonUrl);
     });
-    $('.edit-lesson-button').click(function(event) {      
-      var lessonUrl = $(event.target).data('lesson-url');
-      alert( lessonUrl )
-      $('#editLessonForm').attr('action', lessonUrl);
-    });
     $('.lessons').sortable({
       update: function(event, ui) {
         $.ajax({
@@ -79,10 +74,8 @@
             <li data-update-url="<%= instructor_section_path(section) %>">
               <div>
 
-<!-- trigger #editSectionModal -->
+<!-- trigger #deleteSection -->
                 <div class="float-right">
-                  <%= link_to 'Edit', "#editSectionModal", 'data-toggle' => 'modal', class: 'edit-color' %>
-                   | 
                   <%= link_to 'Delete Section', instructor_section_path(section), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
                 </div>
                 <h3>
@@ -106,13 +99,8 @@
                       </h3>
                       <div>
 
-<!-- trigger #editLessonModal -->
+<!-- trigger #deleteLesson -->
                         <div class="float-right">
-                          <button type="button" class="edit-lesson-button enter-button float-left" data-toggle="modal" data-target="#editLessonModal" data-lesson-url="<%= instructor_lesson_path(lesson) %>">
-                            Edit Lesson
-                          </button>
-                          <%= link_to 'Edit', "#editLessonModal", 'data-toggle' => 'modal', 'data-lesson-url' => '<%= instructor_lesson_path(lesson)', class: 'edit-color' %>
-                           | 
                           <%= link_to 'Delete Lesson', instructor_lesson_path(lesson), method: :delete, data: {confirm: 'Are you sure you want to delete is entry?'}, class: 'delete-color' %>
                         </div>
                         <p>
@@ -154,12 +142,5 @@
 <!-- #newSectionModal -->
 <%= render template: "instructor/sections/new" %>
 
-<!-- #editSectionModal -->
-<%= render template: "instructor/sections/edit" %>
-
 <!-- #newLessonModal -->
 <%= render template: "instructor/lessons/new" %>
-
-<!-- #editLessonModal -->
-<%= render template: "instructor/lessons/edit" %>
-

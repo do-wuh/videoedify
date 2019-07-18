@@ -1,20 +1,24 @@
-<div class="modal fade hide" id="newCourseModal" tabindex="-1" role="dialog" aria-labelledby="newCourseModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="user-devise">
-        <h4>New Course</h4>
-        <br/>
-        <%= simple_form_for instructor_courses_path do |f| %>
-          <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-          <%= f.input :description, required: true, label: false, placeholder: 'description' %>
-          <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
-          <%= f.input_field :image, class: 'enter-button float-left' %>
-          <%= f.submit  'Add Course', class: 'enter-button float-right' %>
-          <br/>
-          <br/>
-          <p>Add Image</p>
-        <% end %>
-      </div>
-    </div>
+<div class="user-devise">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="user-form">
+    <h4>New Course</h4>
+    <br/>
+    <%= simple_form_for @course, url: instructor_courses_path do |f| %>
+      <%= f.input :title, required: true, label: false, placeholder: 'title' %>
+      <%= f.input :description, required: true, label: false, placeholder: 'description' %>
+      <%= f.input :cost, required: true, label: false, placeholder: 'cost' %>
+      <%= f.input_field :image, class: 'enter-button float-left' %>
+      <%= f.submit  'Add Course', class: 'enter-button float-right' %>
+      <br/>
+      <br/>
+      <p>Add Image</p>
+    <% end %>
   </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>

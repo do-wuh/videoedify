@@ -1,11 +1,30 @@
-<h4>Sign In</h4>
-<br/>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.input :email, required: true, label: false, placeholder: 'email', class: 'btn' %>
-  <%= f.input :password, required: true, label: false, placeholder: 'password', class: 'btn' %>
-  <%= f.button :submit, 'Sign in', class: 'enter-button float-right' %>
-<% end %>
-<br/>
-<h6>
-  <a data-toggle="tab" href="#signupForm">Sign Up</a> | <a data-toggle="tab" href="#forgotForm">Forgot Password?</a>
-</h6>
+<div class="user-devise">
+  <div></div>
+    <div></div>
+      <div></div>
+        <div></div>
+          <div class="user-form">
+            <table>
+              <tr>
+                <td>
+                  <h4>Sign In</h4>
+                  <br/>
+                  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= f.input :email, required: true, label: false, placeholder: 'email', class: 'btn' %>
+                    <%= f.input :password, required: true, label: false, placeholder: 'password', class: 'btn' %>
+                    <%= f.button :submit, 'Sign in', class: 'enter-button float-right' %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6><%= render "devise/shared/links" %></h6>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <div></div>
+      <div></div>
+    <div></div>
+  <div></div>
+</div>

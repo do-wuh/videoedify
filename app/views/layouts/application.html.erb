@@ -32,40 +32,45 @@
             <%= render file: "app/assets/images/logo-green.svg" %>
           </a>
         </div>
-        
-        <%= link_to courses_path do %>
-          <div class="courses">
-            View All Courses
-          </div>
-        <% end %>
+
+        <div class="courses">
+          <%= link_to 'View All Courses', courses_path %>
+        </div>
+
+        <div class="user-sign">
+          <ul class="item-list">
+            <% if user_signed_in? %>
+              <li class="item active">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li class="item">
+                <%= link_to 'Sign In', new_user_session_path %>
+              </li>
+              <li class="item">
+                <%= link_to 'Sign Up', new_user_registration_path %>
+              </li>
+            <% end %>
+          </ul> 
+        </div>
 
         <div class="hamburger">
           <div class="hamburger-icon">
             <%= render file: "app/assets/images/hamburger-icon.svg" %>
+
             <div class="header-links">
-              <ul class="item-list">
-                <% if user_signed_in? %>
-                  <li class="item active">
-                    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-                  </li>
-                <% else %>
-                  <li class="item">
-                    <%= link_to 'Sign In', "#userForm", 'data-toggle' => 'modal', class: 'edit-color' %>
-                  </li>
-                  <li class="item">
-                    <%= link_to 'Sign Up', '#signupForm', class: 'edit-color signupModal' %>
-                  </li>
-                <% end %>
-              </ul>
+
+          <ul>
+
+            <li>
+              <%= link_to 'Teach a Course', new_instructor_course_path %>
+            </li>
+            <li>
+              <%= link_to 'Dashboard', dashboard_path %>
+            </li>
+          </ul>
             </div>
           </div>
-        </div>
-
-        <div class="search float-right">
-          <form>
-            <input class="search-box" type="text" placeholder="search">
-            <button class="search-icon" type="submit">Search</button>
-          </form>
         </div>
 
       </header>
@@ -78,39 +83,32 @@
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
         <%= yield %>
-      </div> 
+      </div>
 
       <footer class="app-footer">
         <div class="bottom-links">
           <div class="more">
-            <a>more</a>
+            <a>Social</a>
           </div>
-          <ul>
+          <div class="gradient-footer">
+            <%= render file: "app/assets/images/rgb.svg" %>
+          </div>
+          <ul>                 
             <li>
-              <a>Social</a>
+              <%= link_to 'https://github.com/do-wuh' do %>
+                <i class="fa fa-github-square fa-2x"></i>
+              <% end %>
             </li>
             <li>
-              <a>About</a>
+              <i class="fa fa-facebook-square fa-2x"></i>
             </li>
             <li>
-              <a>Contact</a>
+              <i class="fa fa-twitter-square fa-2x"></i>
             </li>
-            <li>
-              <a>Team</a>
-            </li>
-            <li>
-              <a>Careers</a>
-            </li>
-            <li>
-              <a>Teachers</a>
-            </li>
-            <li>
-              <%= link_to 'Dashboard', dashboard_path %>
-            </li>
-          </ul>
+          </ul> 
         </div>
       </footer>
-     
+    
     </div>
 
     <!-- #userForm modal -->
