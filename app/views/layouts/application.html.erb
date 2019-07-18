@@ -12,7 +12,7 @@
         $('.signupModal').click(function(){
           $("#userForm").modal('show');
           $("#signinForm").tab('hide');
-          $("#signupForm").tab('show');          
+          $("#signupForm").tab('show');
           $("#forgotForm").tab('hide');
         });
       });
@@ -24,13 +24,13 @@
       <header class="app-header">
 
         <div class="gradient">
-          <%= render file: "app/assets/images/rgb.svg" %>       
+          <%= render file: "app/assets/images/rgb.svg" %>
         </div>
 
-        <div class="logo-green">                            
+        <div class="logo-green">
           <a href="/#">
             <%= render file: "app/assets/images/logo-green.svg" %>
-          </a>          
+          </a>
         </div>
         
         <%= link_to courses_path do %>
@@ -41,7 +41,7 @@
 
         <div class="hamburger">
           <div class="hamburger-icon">
-            <%= render file: "app/assets/images/hamburger-icon.svg" %>          
+            <%= render file: "app/assets/images/hamburger-icon.svg" %>
             <div class="header-links">
               <ul class="item-list">
                 <% if user_signed_in? %>
@@ -52,11 +52,11 @@
                   <li class="item">
                     <%= link_to 'Sign In', "#userForm", 'data-toggle' => 'modal', class: 'edit-color' %>
                   </li>
-                  <li class="item">                  
+                  <li class="item">
                     <%= link_to 'Sign Up', '#signupForm', class: 'edit-color signupModal' %>
                   </li>
                 <% end %>
-              </ul>          
+              </ul>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
           </div>
           <ul>
             <li>
-              <a>Social</a>             
+              <a>Social</a>
             </li>
             <li>
               <a>About</a>
@@ -108,7 +108,7 @@
               <%= link_to 'Dashboard', dashboard_path %>
             </li>
           </ul>
-        </div>       
+        </div>
       </footer>
      
     </div>
