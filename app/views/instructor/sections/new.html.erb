@@ -6,7 +6,7 @@
         <br/>
         <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
           <%= f.input :title, required: true, label: false, placeholder: 'title' %>
-          <%= f.submit 'Add Section', class: 'enter-button' %>
+          <%= f.submit 'Add Section', class: 'enter-button float-right' %>
         <% end %>
       </div>
     </div>

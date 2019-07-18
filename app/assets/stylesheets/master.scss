@@ -154,6 +154,10 @@ hr {
   z-index: 20;
 }
 
+.modal-open {
+  overflow: unset;
+}
+
 @media all and (max-width: 1200px) {
   .app-wrapper {
     grid-auto-rows: 50px auto 50px;
