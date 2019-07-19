@@ -1,27 +1,54 @@
-<div class="multi-page">
-  
+<div class="single-page">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
   <div>
-    <h1>Learn how to Design</h1>
-    <%= link_to 'Learn More', courses_path, class: 'enter-button float-right' %>    
-    <h2>with Eskil</h2>    
+    <div class="modal-form">
+      <%= link_to 'Learn More', courses_path, class: 'enter-button float-right' %>
+      <h1>Learn Something New!</h1>
+      <hr />
+      <br/>
+      <h5>
+        <div>
+          <p>Amazing Courses</p>
+          <br />
+          <p>Choose from any number of courses to study with amazing teachers.</p>
+        </div>
+        <div>
+          <p>Learn At Your Own Pace</p>
+          <br />
+          <p>Enroll and access a courses archive of lessons.</p>
+        </div>
+        <div>
+          <p>Join our Community</p>
+          <br />
+          <p>Learn with a community of like-minded individuals.</p>
+        </div>
+      </h5>      
+      <br/>
+      <hr />
+      <h1>Featured Course</h1>
+      <br/>
+      <div>
+        <% @courses.find do |course| %>
+          <%= link_to course_path(course) do %>
+            <h3 class="float-right"><%= course.title %></h3>
+            <br/>
+            <br/>
+            <div class="aspect-ratio-outer">
+              <div class="aspect-ratio-inner">
+                <%= image_tag course.image.url %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <br/>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <p>Amazing Courses</p>
-    <br />
-    <p>Choose from any number of courses to study with amazing teachers.</p>
-  </div>
-
-  <div>
-    <p>Learn At Your Own Pace</p>
-    <br />
-    <p>Enroll and access a courses archive of lessons.</p>
-  </div>
-
-  <div>
-    <p>Join our Community</p>
-    <br />
-    <p>Learn with a community of like-minded individuals.</p>
-  </div>
-
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
